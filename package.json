@@ -26,6 +26,7 @@
     "react-select-search": "^2.0.6",
     "reactstrap": "^8.5.1",
     "redux": "^4.0.1",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "resolve-url-loader": "^3.1.1",
     "sass": "^1.26.10",

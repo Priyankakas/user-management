@@ -11,7 +11,6 @@ import CustomSelectSearch from "components/CustomUIComponents/CustomSelectSearch
 import CustomFormControl from "components/CustomUIComponents/CustomFormControl/CustomFormControl";
 
 //Actions
-import { AddUserListAction, EditUserListAction } from "../UserListAction";
 
 //Constants
 import { ROUTES } from "../../../constants/routeConstants";
@@ -188,7 +187,7 @@ class AddUser extends React.Component {
 const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ AddUserListAction }, dispatch);
+  return bindActionCreators({}, dispatch);
 };
 
 export default withRouter(

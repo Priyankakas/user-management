@@ -3,6 +3,11 @@ import { routerMiddleware } from "react-router-redux";
 import thunk from "redux-thunk";
 import { createBrowserHistory as createHistory } from "history";
 
+// To persist redux state on pagerefresh
+import { persistReducer, persistStore } from "redux-persist";
+//redux-persist for session storage
+import storage from "redux-persist/lib/storage/session";
+
 //root reducer
 import rootReducer from "../redux/Reducers/rootReducer";
 
@@ -23,4 +28,14 @@ const composedEnhancers = compose(
   ...enhancers
 );
 
-export const store = createStore(rootReducer, composedEnhancers);
+const persistConfig = {
+  key: "root",
+  storage: storage,
+};
+
+export const store = createStore(
+  persistReducer(persistConfig, rootReducer),
+  composedEnhancers
+);
+
+export const persistor = persistStore(store);

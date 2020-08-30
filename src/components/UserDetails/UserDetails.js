@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { Col, Button } from "react-bootstrap";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import { withRouter } from "react-router-dom";
 import Avatar from "react-avatar";
+import { Col, Button } from "react-bootstrap";
 
 //use withRouter to access history,location object
 
@@ -15,17 +17,8 @@ class UserDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userDetails: [],
+      userDetails: this.props.userDetails,
     };
-  }
-
-  componentDidMount() {
-    console.log(this.props.location.userInfo);
-    if (this.props.location.userInfo) {
-      this.setState({
-        userDetails: this.props.location.userInfo,
-      });
-    }
   }
 
   CancelBack = () => {
@@ -78,4 +71,18 @@ class UserDetails extends Component {
   }
 }
 
-export default withRouter(UserDetails);
+const mapStateToProps = (storeData) => {
+  return {
+    userDetails: storeData.userReducer.getUser,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({}, dispatch);
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(UserDetails)
+);

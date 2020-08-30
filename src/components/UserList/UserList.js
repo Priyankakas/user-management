@@ -13,7 +13,8 @@ import CustomSelectSearch from "components/CustomUIComponents/CustomSelectSearch
 import CustomFormControl from "components/CustomUIComponents/CustomFormControl/CustomFormControl";
 
 //Actions
-import { EditUserListAction } from "./UserListAction";
+
+import { getUserAction, addUserAction } from "redux/Actions/UserAction";
 
 //Routes
 import { ROUTES } from "constants/routeConstants";
@@ -51,6 +52,7 @@ class UserList extends Component {
       .get("http://localhost:3001/users")
       .then((resp) => {
         let data = resp.data;
+        this.props.addUserAction(data);
         this.setState({
           userList: data,
         });
@@ -197,9 +199,9 @@ class UserList extends Component {
   };
 
   goToUserProfile = (row) => {
+    this.props.getUserAction(row);
     this.props.history.push({
       pathname: ROUTES.USERDETAILS,
-      userInfo: row,
     });
   };
 
@@ -409,19 +411,12 @@ class UserList extends Component {
   }
 }
 
-function mapStateToProps(storeData) {
-  return {
-    userList: storeData.userListReducer.userList,
-  };
-}
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      EditUserListAction: EditUserListAction,
-    },
-    dispatch
-  );
-}
+const mapStateToProps = (storeData) => {
+  return {};
+};
+const matchDispatchToProps = (dispatch) => {
+  return bindActionCreators({ getUserAction, addUserAction }, dispatch);
+};
 
 export default withRouter(
   connect(
