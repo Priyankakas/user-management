@@ -48,7 +48,6 @@ class Login extends React.Component {
         userName: this.state.userName,
         password: this.state.password,
       };
-
       this.props.LoginAction(loggedInUser);
       this.props.history.push(ROUTES.USERLIST);
     }

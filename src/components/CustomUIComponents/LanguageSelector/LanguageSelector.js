@@ -8,14 +8,9 @@ import { changeLanguage } from "../../../resources/i18n/i18n";
 import { LANGUAGE } from "../../../constants/appConstants";
 
 // Assets
-// import down_arrow from "ASSETS/down_arrow.svg";
-// import up_arrow from "ASSETS/up_arrow.svg";
-import en from "../../../resources/images/en_flag.png";
-import es from "../../../resources/images/es_flag.png";
 import selected_mark from "../../../resources/images/selected_mark.svg";
 
-// import { getTranslation } from "../../../resources/i18n/i18n";
-
+//Styles
 import "./LanguageSelector.scss";
 
 const options = [
@@ -54,17 +49,7 @@ class LanguageSelector extends React.Component {
     return (
       <button {...props} className={className} type="button">
         <span className="d-flex justify-content-between">
-          <div>
-            <span className="pr-2">
-              {option.value === "en" ? (
-                <img src={en} alt="english" />
-              ) : (
-                <img src={es} alt="spanish" />
-              )}
-            </span>
-
-            {option.name}
-          </div>
+          <div>{option.name}</div>
           {snapshot.selected ? (
             <img src={selected_mark} alt={selected_mark} />
           ) : (
@@ -75,29 +60,15 @@ class LanguageSelector extends React.Component {
     );
   }
 
-  renderValue = (valueProps, snapshot, className) => {
-    // const { value } = snapshot;
-
-    return (
-      <input
-        {...valueProps}
-        className={className}
-        // style={style}
-        value={snapshot.displayValue}
-      />
-    );
-  };
-
   render() {
     return (
-      <div className="languageSelector">
+      <div className="language-selector">
         <SelectSearch
           className="select-search"
           options={options}
           onChange={this.toggleLanguage}
           value={this.state.language}
           renderOption={this.renderOption}
-          // renderValue={this.renderValue}
           // printOptions="always"
         />
       </div>

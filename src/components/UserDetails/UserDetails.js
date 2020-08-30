@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withRouter } from "react-router-dom";
 import Avatar from "react-avatar";
-import { Col, Button } from "react-bootstrap";
+import { Col, Button, Row } from "react-bootstrap";
 
 //use withRouter to access history,location object
 
@@ -31,11 +31,11 @@ class UserDetails extends Component {
     return (
       <div className="Details">
         <div className="userDetails">
-          <Col xs={12} className="userImg">
+          <Row className="userImg mx-0 justify-content-center">
             <Avatar name={name} maxInitials={2} round={true} />
-          </Col>
-          <Col xs={12} className="d-flex">
-            <Col xs={{ span: 3, offset: 3 }} className="">
+          </Row>
+          <Row className="d-flex justify-content-center">
+            <Col xs={{ span: 3, offset: 2 }} className="">
               <div>
                 <div className="label">FirstName</div>
                 {userDetails.firstName}
@@ -59,13 +59,13 @@ class UserDetails extends Component {
                 {userDetails.contact}
               </div>
             </Col>
-          </Col>
+          </Row>
         </div>
-        <Col xs={12} className="CancelBack">
+        <Row xs={12} className="CancelBack mx-3">
           <Button className="bg-danger" onClick={this.CancelBack}>
             Cancel
           </Button>
-        </Col>
+        </Row>
       </div>
     );
   }

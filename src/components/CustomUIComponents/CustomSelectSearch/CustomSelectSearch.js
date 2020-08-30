@@ -32,7 +32,7 @@ class CustomSelectSearch extends Component {
         <FormGroup>
           <Label>{this.props.topLabel}</Label>
           <SelectSearch
-            className="select-search w-100"
+            className="w-100"
             options={this.props.options}
             onChange={this.props.handleChange}
             value={this.props.value}

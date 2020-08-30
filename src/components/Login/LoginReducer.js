@@ -1,9 +1,9 @@
-import { LOGIN_SUCCESS_ACTION, LOGOUT_ACTION } from "../../redux/constants";
+import { LOGIN_SUCCESS_ACTION, LOGOUT_ACTION } from "redux/constants";
 
 const INITIAL_STATE = {
   loggedInUser: {
-    userName: "priyanka",
-    password: "piyu",
+    userName: "",
+    password: "",
   },
 };
 

@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import axios from "axios";
+import { bindActionCreators } from "redux";
+
+import { Row } from "reactstrap";
+
+import LanguageSelector from "components/CustomUIComponents/LanguageSelector/LanguageSelector";
+
+import setLanguageAction from "redux/Actions/LanguageAction";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -10,41 +16,39 @@ class Dashboard extends Component {
     };
   }
 
-  componentDidMount() {
-    axios
-      .get("http://localhost:3001/users")
-      .then((resp) => {
-        let data = resp.data;
-        console.log("response", data);
-        this.setState({
-          users: data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  componentDidMount() {}
+
+  setLanguage = (language) => {
+    this.props.setLanguageAction(language);
+  };
 
   render() {
     return (
-      <div className="Dashboard">
+      <div className="dashboard m-3">
         Welcome To Dashboard
-        {this.state.users.map((item) => {
-          return (
-            <div>
-              {item.email}
-              {item.first_name}
-              {item.last_name}
-            </div>
-          );
-        })}
+        <Row className="mx-0 justify-content-between">
+          <LanguageSelector
+            handleLanguageChange={this.setLanguage}
+            language={this.props.language}
+          />
+        </Row>
       </div>
     );
   }
 }
 
 const mapStateToProps = (storeData) => {
-  return {};
+  return {
+    language: storeData.LanguageReducer.language,
+    loggedInUser: storeData.LoginReducer.loggedInUser,
+  };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ setLanguageAction }, dispatch);
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Dashboard);

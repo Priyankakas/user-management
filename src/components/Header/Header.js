@@ -83,10 +83,6 @@ class Header extends React.Component {
     return (
       <div className="headerStyle">
         <Row className="mx-0 justify-content-between">
-          <LanguageSelector
-            handleLanguageChange={this.setLanguage}
-            language={this.props.language}
-          />
           <div className="headerName">
             <label className="userName">
               {this.props.loggedInUser.userName}
