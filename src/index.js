@@ -5,6 +5,8 @@ import App from "./App/App";
 import * as serviceWorker from "./serviceWorker";
 
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+
 import { HashRouter, Switch, Route } from "react-router-dom";
 
 //Components
@@ -13,7 +15,7 @@ import Layout from "components/Layout/Layout";
 import Login from "components/Login/Login";
 
 //Store
-import { store } from "./redux/store";
+import { store, persistor } from "./redux/store";
 
 //RouteConstants
 import { ROUTES } from "./constants/routeConstants";
@@ -26,19 +28,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
   <Provider store={store}>
-    <HashRouter>
-      <App>
-        <Switch>
-          <Route exact path={ROUTES.ROOT_PATH} component={LandingPage} />
-          <Route exact path={ROUTES.LOGIN} component={Login} />
-          <Layout>
-            {routes.map((route, index) => (
-              <Route key={index} {...route} />
-            ))}
-          </Layout>
-        </Switch>
-      </App>
-    </HashRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <HashRouter>
+        <App>
+          <Switch>
+            <Route exact path={ROUTES.ROOT_PATH} component={LandingPage} />
+            <Route exact path={ROUTES.LOGIN} component={Login} />
+            <Layout>
+              {routes.map((route, index) => (
+                <Route key={index} {...route} />
+              ))}
+            </Layout>
+          </Switch>
+        </App>
+      </HashRouter>
+    </PersistGate>
   </Provider>,
   document.getElementById("root")
 );

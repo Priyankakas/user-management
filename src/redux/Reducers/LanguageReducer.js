@@ -1,5 +1,5 @@
-import { LANGUAGE } from "../../constants/appConstants";
-import { SET_LANGUAGE } from "../constants";
+import { LANGUAGE } from "constants/appConstants";
+import { SET_LANGUAGE } from "redux/constants";
 
 const INITIAL_STATE = {
   language: LANGUAGE.ENGLISH.name,

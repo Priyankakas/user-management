@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-
 import { Row } from "reactstrap";
 
 import LanguageSelector from "components/CustomUIComponents/LanguageSelector/LanguageSelector";
 
 import setLanguageAction from "redux/Actions/LanguageAction";
+
+import { getTranslation, changeLanguage } from "resources/i18n/i18n";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -16,16 +17,19 @@ class Dashboard extends Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log("dash", this.props.language);
+  }
 
   setLanguage = (language) => {
+    changeLanguage(language);
     this.props.setLanguageAction(language);
   };
 
   render() {
     return (
       <div className="dashboard m-3">
-        Welcome To Dashboard
+        {getTranslation("WelcomeNote")}
         <Row className="mx-0 justify-content-between">
           <LanguageSelector
             handleLanguageChange={this.setLanguage}

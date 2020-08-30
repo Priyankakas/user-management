@@ -7,10 +7,8 @@ import { Button, Row } from "reactstrap";
 
 //RouteConstants
 import { ROUTES } from "constants/routeConstants";
-import LanguageSelector from "components/CustomUIComponents/LanguageSelector/LanguageSelector";
 
 //Actions
-import setLanguageAction from "redux/Actions/LanguageAction";
 import { logoutAction } from "components/Login/LoginAction";
 
 //Translation
@@ -27,6 +25,10 @@ class Header extends React.Component {
     };
   }
 
+  componentDidMount() {
+    console.log("header", this.props.language);
+  }
+
   logoutClick = () => {
     this.props.logoutAction();
     this.setState({
@@ -34,10 +36,6 @@ class Header extends React.Component {
     });
     this.props.history.replace("/login");
     window.location.reload();
-  };
-
-  setLanguage = (language) => {
-    this.props.setLanguageAction(language);
   };
 
   SideBarMenuItems = () => {
@@ -125,7 +123,7 @@ const mapStateToProps = (storeData) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ logoutAction, setLanguageAction }, dispatch);
+  return bindActionCreators({ logoutAction }, dispatch);
 };
 
 export default withRouter(

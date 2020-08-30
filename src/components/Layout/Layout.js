@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import { withRouter } from "react-router";
-
 import { HashRouter as Router } from "react-router-dom";
+
+import setLanguageAction from "redux/Actions/LanguageAction";
 
 //Components
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+
+import { changeLanguage } from "resources/i18n/i18n";
 
 //Style
 import "./Layout.scss";
@@ -16,6 +20,11 @@ import "./Layout.scss";
 //Header contains navlink so wrap this component inside router to load components on url change
 
 class Layout extends Component {
+  constructor(props) {
+    super(props);
+    changeLanguage(this.props.language);
+  }
+
   render() {
     return (
       <Router>
@@ -34,5 +43,19 @@ const mapStateToProps = (storeData) => {
     language: storeData.LanguageReducer.language,
   };
 };
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      // setThemeAction,
+      setLanguageAction,
+    },
+    dispatch
+  );
+};
 
-export default withRouter(connect(mapStateToProps)(Layout));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Layout)
+);
