@@ -58,15 +58,6 @@ class UserList extends Component {
       .catch((error) => {
         console.log(error);
       });
-
-    console.log("addeduser", this.props.location);
-
-    let addedUser = this.props.location.addedUser;
-    if (addedUser) {
-      this.setState({
-        userList: [...this.state.userList, addedUser],
-      });
-    }
   }
 
   initFormFields = () => {

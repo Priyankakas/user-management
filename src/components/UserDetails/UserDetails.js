@@ -34,11 +34,12 @@ class UserDetails extends Component {
 
   render() {
     let { userDetails } = this.state;
+    let name = userDetails.firstName + " " + userDetails.lastName;
     return (
       <div className="Details">
         <div className="userDetails">
           <Col xs={12} className="userImg">
-            <Avatar name={userDetails.img} maxInitials={2} round={true} />
+            <Avatar name={name} maxInitials={2} round={true} />
           </Col>
           <Col xs={12} className="d-flex">
             <Col xs={{ span: 3, offset: 3 }} className="">
@@ -47,11 +48,11 @@ class UserDetails extends Component {
                 {userDetails.firstName}
               </div>
               <div>
-                <div className="label">User</div>
-                {userDetails.userName}
+                <div className="label">Username</div>
+                {userDetails.username}
               </div>
               <div>
-                <div className="label">Kind </div>
+                <div className="label">Role</div>
                 {userDetails.role}
               </div>
             </Col>
