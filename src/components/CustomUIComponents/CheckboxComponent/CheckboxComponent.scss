@@ -1,0 +1,12 @@
+@import "~STYLES/colors.scss";
+@import "~STYLES/fonts.scss";
+
+.checkbox-component {
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  /*** custom checkboxes ***/
+  input[type="checkbox"] {
+    display: none;
+  } /* to hide the checkbox and show custom img */
+}

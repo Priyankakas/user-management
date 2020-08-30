@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="ic_expand_menu" transform="translate(-19 -74)">
+    <rect id="Rectangle_528" data-name="Rectangle 528" width="24" height="24" transform="translate(19 74)" fill="rgba(37,53,75,0)"/>
+    <path id="right-arrow" d="M19.7,12.22a.8.8,0,0,0-1.1,1.154l6.111,5.8H8.8a.8.8,0,0,0,0,1.593H24.689l-6.085,5.8a.8.8,0,1,0,1.1,1.154l6.95-6.62a1.592,1.592,0,0,0-.014-2.266Z" transform="translate(12.925 65.957)" fill="#fff"/>
+  </g>
+</svg>

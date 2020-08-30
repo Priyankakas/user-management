@@ -1,0 +1,24 @@
+@import "~STYLES/colors.scss";
+@import "~STYLES/fonts.scss";
+
+.custom-toast {
+  .notification {
+    background-color: $backgroundColor10 !important;
+    color: $textColor9 !important;
+    border-top: none !important;
+    border-radius: 5px !important;
+    bottom: 58px !important;
+    left: 30% !important;
+    height: 50px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    .notification-dismiss {
+      background-color: $backgroundColor10 !important;
+    }
+  }
+  .toast-message {
+    @extend .MuliSemiBoldWhite14px;
+  }
+}

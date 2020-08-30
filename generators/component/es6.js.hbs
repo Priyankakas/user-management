@@ -1,0 +1,42 @@
+import React from "react"; 
+
+ {{#if wantRedux}} 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+ {{/if}}
+
+ {{#if wantMessages}} 
+import { getTranslation } from "INTL/i18n";
+{{/if}} 
+
+{{#if wantStyle}} 
+import "./{{ name }}.scss"; 
+{{/if}} 
+
+ class {{ properCase name }} extends React.Component { 
+   render () { 
+     return ( 
+       {{#if wantStyle}}
+        <div className="{{ camelCase name }}">
+        {{else}}
+        <div>
+         {{/if}} 
+         {{#if wantMessages}}
+        {getTranslation("Example")}
+        {{/if}}
+      </div>
+      
+    ) 
+  } 
+} 
+
+ {{#if wantRedux}} 
+const mapStateToProps = (state) => ({
+});
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({},dispatch);
+};
+ {{/if}}
+
+export default {{#if wantRedux}} connect(mapStateToProps, mapDispatchToProps) (  {{/if}}{{ properCase name }}  {{#if wantRedux}} )  {{/if}}

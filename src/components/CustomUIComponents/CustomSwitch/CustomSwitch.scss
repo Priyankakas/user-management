@@ -1,0 +1,12 @@
+@import "~STYLES/colors.scss";
+@import "~STYLES/fonts.scss";
+
+.custom-switch-container {
+  .inactive-color {
+    @extend .MuliSemiBoldDarkBlue14px;
+    opacity: 0.3;
+  }
+  .active-color {
+    @extend .MuliSemiBoldDarkBlue14px;
+  }
+}

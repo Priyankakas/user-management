@@ -1,0 +1,35 @@
+.user-list {
+  .add-button {
+    display: flex;
+    align-items: center;
+    padding: 3px 15px;
+  }
+
+  .edit-button {
+    min-width: 72px;
+  }
+
+  .search-label {
+    margin-bottom: 0px !important;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+//Modal Styles
+.modal-dialog {
+  .modal-content {
+    width: 700px !important;
+  }
+  .modal-header {
+    background-color: grey;
+  }
+  .content-body {
+    display: flex;
+  }
+  .update-button {
+    min-width: 75px;
+    min-height: 38px;
+  }
+}

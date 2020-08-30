@@ -1,0 +1,35 @@
+import React from "react"; 
+
+{{#if wantMessages}} 
+import { getTranslation } from "INTL/i18n";
+{{/if}} 
+
+{{#if wantConstant}} 
+import "./{{ name }}.js"; 
+{{/if}} 
+
+{{#if wantStyle}} 
+import "./{{ name }}.scss"; 
+{{/if}} 
+
+
+ class {{ properCase name }} extends React.Component { 
+   render () { 
+     return ( 
+       {{#if wantStyle}}
+        <div className="{{ camelCase name }}">
+        {{else}}
+        <div>
+         {{/if}} 
+         {{#if wantMessages}}
+        {getTranslation("Example")}
+        
+        {{/if}}
+      </div>
+      
+    ) 
+  } 
+} 
+
+
+export default {{ properCase name }}

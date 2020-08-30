@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="ic_tick" transform="translate(0 0)">
+    <rect id="Rectangle_265" data-name="Rectangle 265" width="16" height="16" rx="2" transform="translate(0 0)" fill="rgba(255,255,255,0)"/>
+    <g id="angle-arrow-down" transform="translate(1.007 2.799)">
+      <path id="Path_707" data-name="Path 707" d="M14.524,60.492l-.925-.925a.582.582,0,0,0-.851,0L5.473,66.841,2.962,64.33a.582.582,0,0,0-.851,0l-.925.925a.582.582,0,0,0,0,.851l3.862,3.863a.582.582,0,0,0,.851,0l8.626-8.625a.583.583,0,0,0,0-.852Z" transform="translate(-1 -59.382)" fill="#168d4f"/>
+    </g>
+  </g>
+</svg>

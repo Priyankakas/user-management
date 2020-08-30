@@ -1,0 +1,47 @@
+.login-style {
+  padding: 20% 20%;
+  /* display: flex; */
+  background: url("../../resources/images/img_login.jpg") no-repeat center
+    center;
+  background-size: cover;
+  justify-content: center;
+
+  .login-container {
+    display: flex;
+  }
+
+  .copyright {
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    right: 20%;
+  }
+  .LoginForm {
+    padding: 20px;
+    max-width: 500px;
+    background-color: white;
+  }
+
+  .quisQueya {
+    background-color: #354052;
+    max-width: 300px;
+    color: white;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .SubmitButton {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .LoginTitle {
+    display: flex;
+    flex: 1;
+    font-size: 20px;
+    padding: 15px 12px !important;
+    font-weight: bold;
+  }
+}

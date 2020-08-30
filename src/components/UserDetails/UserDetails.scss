@@ -1,0 +1,27 @@
+.label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.userDetails {
+  padding: 20px 0px;
+  border: 1px solid grey;
+}
+
+.CancelBack {
+  padding: 20px 0px !important;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.userImage {
+  min-width: 93px;
+  min-height: 93px;
+  max-width: 93px;
+  max-height: 93px;
+  border-radius: 50%;
+}
+
+.noPadding {
+  padding: 0;
+}

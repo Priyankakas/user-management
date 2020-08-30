@@ -1,0 +1,30 @@
+@import "~STYLES/colors.scss";
+@import "~STYLES/fonts.scss";
+
+.number-format-container {
+  .top-place-holder {
+    position: absolute;
+    line-height: 1.2rem;
+    transform: translateY(-1.6rem);
+    @extend .MuliSemiBoldDarkBlue14px;
+  }
+  .number-input {
+    @extend .MuliBold;
+    font-size: 14px;
+    color: $textColor4;
+    padding: 0.375rem 0.75rem;
+    width: 100%;
+    min-height: 1em;
+    text-align: left;
+    background: $backgroundColor3;
+    outline: 0 !important;
+    box-shadow: 0 !important;
+    border: 1px solid $borderColor7;
+    border-radius: 5px;
+    height: 37px;
+  }
+  ::placeholder {
+    @extend .MuliLightDarkBlue14px;
+    font-weight: lighter;
+  }
+}
