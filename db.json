@@ -40,9 +40,25 @@
       "firstName": "Roger",
       "lastName": "Bacon",
       "username": "RoBacon",
-      "contact": "75882753589",
+      "contact": "758827535",
       "role": "admin",
       "id": 5
+    },
+    {
+      "firstName": "Priyanka",
+      "lastName": "Kasture",
+      "username": "piyu",
+      "contact": "646456456456",
+      "role": "admin",
+      "id": 6
+    },
+    {
+      "firstName": "Rohan",
+      "lastName": "Kasture",
+      "username": "rohank",
+      "contact": "6456565757",
+      "role": "operator",
+      "id": 7
     }
   ]
 }

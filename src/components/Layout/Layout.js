@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withRouter } from "react-router";
-import { HashRouter as Router } from "react-router-dom";
 
 import setLanguageAction from "redux/Actions/LanguageAction";
 
@@ -27,13 +26,10 @@ class Layout extends Component {
 
   render() {
     return (
-      <Router>
-        <div className="Layout">
-          <Header />
-          {this.props.children}
-          <Footer />
-        </div>
-      </Router>
+      <div className="Layout">
+        <Header />
+        <Footer />
+      </div>
     );
   }
 }

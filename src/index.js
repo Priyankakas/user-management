@@ -13,15 +13,13 @@ import { HashRouter, Switch, Route } from "react-router-dom";
 import LandingPage from "components/LandingPage/LandingPage";
 import Layout from "components/Layout/Layout";
 import Login from "components/Login/Login";
+// import PrivateRoute from "components/CustomUIComponents/PrivateRoute/PrivateRoute";
 
 //Store
 import { store, persistor } from "./redux/store";
 
 //RouteConstants
 import { ROUTES } from "./constants/routeConstants";
-
-// Routes
-import routes from "routes";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -34,11 +32,7 @@ ReactDOM.render(
           <Switch>
             <Route exact path={ROUTES.ROOT_PATH} component={LandingPage} />
             <Route exact path={ROUTES.LOGIN} component={Login} />
-            <Layout>
-              {routes.map((route, index) => (
-                <Route key={index} {...route} />
-              ))}
-            </Layout>
+            <Layout />
           </Switch>
         </App>
       </HashRouter>

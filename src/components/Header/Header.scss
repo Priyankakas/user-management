@@ -1,15 +1,8 @@
-.headerStyle {
-  background-color: cadetblue;
+.header {
   font-size: medium;
+}
+
+.navbar-background {
   padding: 1%;
-  color: blue;
-}
-
-.headerName {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.userName {
-  padding: 7px 5px;
+  background-color: cadetblue;
 }

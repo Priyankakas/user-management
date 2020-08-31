@@ -3,7 +3,14 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
-import { Button, Row } from "reactstrap";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
+
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
 
 //RouteConstants
 import { ROUTES } from "constants/routeConstants";
@@ -13,6 +20,7 @@ import { logoutAction } from "components/Login/LoginAction";
 
 //Translation
 import { getTranslation } from "resources/i18n/i18n";
+import routes from "routes";
 
 import "./Header.scss";
 
@@ -20,8 +28,8 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      navigate: false,
       loggedInUser: {},
+      isOpen: false,
     };
   }
 
@@ -29,13 +37,15 @@ class Header extends React.Component {
     console.log("header", this.props.language);
   }
 
+  toggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
+  };
+
   logoutClick = () => {
     this.props.logoutAction();
-    this.setState({
-      navigate: true,
-    });
     this.props.history.replace("/login");
-    window.location.reload();
   };
 
   SideBarMenuItems = () => {
@@ -79,38 +89,45 @@ class Header extends React.Component {
     });
 
     return (
-      <div className="headerStyle">
-        <Row className="mx-0 justify-content-between">
-          <div className="headerName">
-            <label className="userName">
-              {this.props.loggedInUser.userName}
-            </label>
+      <Router>
+        <div className="header">
+          <div className="navbar-background">
+            <nav className="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
+              <ul className="navbar-nav">
+                {menuLinks.map((item, index) => {
+                  return (
+                    <li key={index}>
+                      <NavLink
+                        to={item.to}
+                        className="nav-link"
+                        activeClassName="active-nav"
+                        activeStyle={{ color: "red" }}
+                      >
+                        {item.title}
+                      </NavLink>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <Dropdown isOpen={this.state.isOpen} toggle={this.toggle}>
+                <DropdownToggle caret>
+                  {this.props.loggedInUser.userName}
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem onClick={this.logoutClick}>Logout</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </nav>
           </div>
-        </Row>
 
-        <nav className="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
-          <ul className="navbar-nav">
-            {menuLinks.map((item, index) => {
-              return (
-                <li key={index}>
-                  <NavLink
-                    to={item.to}
-                    className="nav-link"
-                    activeClassName="active-nav"
-                    activeStyle={{ color: "red" }}
-                  >
-                    {item.title}
-                  </NavLink>
-                </li>
-              );
-            })}
-          </ul>
-
-          <Button type="button" onClick={this.logoutClick} color="link">
-            Logout
-          </Button>
-        </nav>
-      </div>
+          <Switch>
+            {routes.map((route, index) => (
+              <Route key={index} {...route} />
+            ))}
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
